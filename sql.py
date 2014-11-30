@@ -1,18 +1,16 @@
-#create SQLite3 table and populate it with data
+# sql.py - Create a SQLite3 table and populate it with data
+
 
 import sqlite3
 
-#create a new db if db doesn't already exist
+#create a new database if the database doesn't already exist
 with sqlite3.connect("blog.db") as connection:
-
-	#get cursor object used to execute SQL commands
+	#get cursor object and use to execute SQL commands
 	c = connection.cursor()
 
-	#create the table
-	c.execute(""" CREATE TABLE posts (title TEXT, post TEXT)
-		""")
-
-	#insert dummy data into table
+	#create this table
+	c.execute("CREATE TABLE posts (title Text, post Text)")
+			  
 	c.execute('INSERT INTO posts VALUES("Good", "I\'m good.")')
 	c.execute('INSERT INTO posts VALUES("Well", "I\'m well.")')
 	c.execute('INSERT INTO posts VALUES("Excellent", "I\'m excellent.")')
